@@ -20,6 +20,7 @@ checkout.removeAttribute('href');
 let checkoutUrl;
 try { checkoutUrl = new URL(shop.checkoutUrl); } catch {}
 if (shop.acceptingOrders === true && shop.checkoutReady === true &&
+    shop.taxRegistrationReady === true && shop.shippingReady === true &&
     checkoutUrl?.protocol === 'https:' && checkoutUrl.hostname === 'buy.stripe.com' && shop.priceLabel) {
   const checkout = document.querySelector('#checkout');
   checkout.href = checkoutUrl.href;
